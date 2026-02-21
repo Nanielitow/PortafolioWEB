@@ -1,11 +1,189 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/NavBar.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { Mail, Phone, Github, Linkedin } from "lucide-astro";
+import { Download } from "lucide-astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout>
+  <Navbar />
+
+<section class="text-center py-32 px-6">
+  <h2 class="text-5xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+    Daniel González
+  </h2>
+
+  
+
+
+  <p class="text-gray-400 text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
+    Soy desarrollador de software con especial enfoque en 
+	Java, desarrollo de aplicaciones Android y ciberseguridad.
+	Me dedico a diseñar y construir soluciones modernas, seguras y escalables
+  </p>
+
+  <section class="text-center py-25	 px-6">
+
+  <img 
+    src="/daniel.jpg" 
+    alt="Foto de Daniel González"
+  	class="w-70 h-70 mx-auto rounded-full object-cover border-4 border-transparent bg-gradient-to-r from-blue-500 to-purple-600 p-1 shadow-2xl"
+  />
+
+  <h2 class="text-5xl font-bold mb-6">
+  </h2>
+
+</section>
+
+  <div class="flex justify-center gap-4">
+    <a 
+      href="#proyectos" 
+      class="bg-blue-500 px-8 py-3 rounded-xl hover:bg-blue-600 transition duration-300 shadow-lg hover:shadow-blue-500/30"
+    >
+      Ver proyectos
+    </a>
+
+    <a 
+      href="#contacto"
+      class="border border-gray-600 px-8 py-3 rounded-xl hover:bg-gray-800 transition duration-300"
+    >
+      Contacto
+    </a>
+  </div>
+</section>
+
+
+  <!-- SOBRE MI -->
+  <section id="sobre-mi" class="max-w-4xl mx-auto py-10 px-6">
+    <h2 class="text-3xl font-bold mb-6">Sobre mí</h2>
+    <p class="text-gray-400 leading-relaxed">
+    Soy estudiante de quinto semestre de Ingeniería en Desarrollo de Software
+	, con especial interés en ciberseguridad y desarrollo de aplicaciones
+	web y móviles. Me caracterizo por mi pasión por la tecnología,
+	el aprendizaje continuo y la creación de soluciones eficientes
+	e innovadoras. Cuento con bases sólidas en programación y una 
+	alta motivación 
+	para aplicar y fortalecer mis conocimientos en entornos reales, aportando compromiso, responsabilidad y capacidad de adaptación a equipos de trabajo.
+    </p>
+  </section>
+
+  <section class="max-w-6xl mx-auto py-20 px-6">
+  <h2 class="text-3xl font-bold mb-12 text-center">Tecnologías</h2>
+
+  <div class="flex flex-wrap justify-center gap-4">
+    {["Java", "Python", "C#", "C++", "Flutter" , "JavaScript", "MySQL", "PostgreSQL", "MongoDB", "Android", "Kotlin", "Dart" , "HTML" , "CSS" , "Astro" , "Git" , "Github" , "Visual Basic" ].map((tech) => (
+      <span class="bg-gray-800 px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300 cursor-default">
+        {tech}
+      </span>
+    ))}
+  </div>
+</section>
+
+
+  <!-- PROYECTOS -->
+  <section id="proyectos" class="max-w-6xl mx-auto py-20 px-6">
+    <h2 class="text-3xl font-bold mb-12 text-center">Proyectos</h2>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <ProjectCard
+  title="PictoLearn"
+  description="PictoLearn es una aplicación educativa 
+  diseñada para apoyar el proceso de aprendizaje mediante 
+  el uso de pictogramas e imágenes interactivas, orientada 
+  especialmente a personas dentro del espectro autista que 
+  presentan dificultades en la adquisición y comprensión del lenguaje español."
+  tech="Android • Flutter • Dart • Java"
+  link="https://github.com/Nanielitow/pictolearn"
+/>
+
+<ProjectCard
+  title="Portafolio personal"
+  description="Proyecto de desarrollo de una página web de portafolio 
+  personal, creada con el objetivo de presentar de forma organizada la información
+  profesional, habilidades técnicas, proyectos realizados y datos de contacto. "
+  tech="Astro • Tailwind • HTML • CSS"
+  link="https://github.com/Nanielitow/portafolio"
+/>
+
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+<section id="contacto" class="max-w-4xl mx-auto py-24 px-6 text-center">
+
+  <h2 class="text-3xl font-bold mb-12">Contacto</h2>
+
+  <div class="grid md:grid-cols-2 gap-6">
+
+    <!-- Teléfono -->
+    <a 
+      href="tel:+57 3114940699"
+      class="flex items-center gap-4 bg-gray-900/60 backdrop-blur-md p-6 rounded-2xl border border-gray-800 hover:border-blue-500 transition hover:scale-105"
+    >
+      <Phone class="text-blue-400" size={28} />
+      <div class="text-left">
+        <p class="text-sm text-gray-400">Celular</p>
+        <p class="font-semibold">+57 311 494 0699</p>
+      </div>
+    </a>
+
+    <!-- Correo -->
+    <a 
+      href="mailto:tucorreo@gmail.com"
+      class="flex items-center gap-4 bg-gray-900/60 backdrop-blur-md p-6 rounded-2xl border border-gray-800 hover:border-purple-500 transition hover:scale-105"
+    >
+      <Mail class="text-purple-400" size={28} />
+      <div class="text-left">
+        <p class="text-sm text-gray-400">Correo</p>
+        <p class="font-semibold">9bgonzalezdaniel@gmail.com</p>
+      </div>
+    </a>
+
+    <!-- GitHub -->
+    <a 
+      href="https://github.com/Nanielitow"
+      target="_blank"
+      class="flex items-center gap-4 bg-gray-900/60 backdrop-blur-md p-6 rounded-2xl border border-gray-800 hover:border-green-500 transition hover:scale-105"
+    >
+      <Github class="text-green-400" size={28} />
+      <div class="text-left">
+        <p class="text-sm text-gray-400">GitHub</p>
+        <p class="font-semibold">github.com/Nanielitow</p>
+      </div>
+    </a>
+
+    <!-- LinkedIn -->
+    <a 
+      href="https://www.linkedin.com/in/daniel-alejandro-gonz%C3%A1lez-floriano-23b88b390/"
+      target="_blank"
+      class="flex items-center gap-4 bg-gray-900/60 backdrop-blur-md p-6 rounded-2xl border border-gray-800 hover:border-blue-400 transition hover:scale-105"
+    >
+      <Linkedin class="text-blue-400" size={28} />
+      <div class="text-left">
+        <p class="text-sm text-gray-400">LinkedIn</p>
+        <p class="font-semibold">linkedin.com/in/Daniel Alejandro Gonzalez</p>
+      </div>
+    </a>
+
+	<div class="mt-12">
+		
+
+</div>
+
+  </div>
+  <!-- BOTÓN HOJA DE VIDA -->
+  <div class="mt-12 flex justify-center">
+    <a 
+      href="/CV-Daniel-Gonzalez.pdf"
+      download
+      class="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-purple-600 px-8 py-4 rounded-2xl font-semibold text-white shadow-lg hover:scale-105 transition duration-300"
+    >
+      <Download size={20} />
+      Descargar Hoja de vida
+    </a>
+  </div>
+
+</section>
+</BaseLayout>

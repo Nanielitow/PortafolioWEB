@@ -1,0 +1,18 @@
+---
+const { title = "Daniel González | Desarrollador" } = Astro.props;
+import "../styles/global.css";
+---
+
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+  </head>
+<body class="bg-gradient-to-br from-gray-950 via-gray-900 to-black text-white font-[Inter]">
+    <slot />
+  </body>
+</html>
